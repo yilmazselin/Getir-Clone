@@ -45,17 +45,41 @@ function Campaigns() {
     cssEase: "linear",
     nextArrow: <NextBtn />,
     prevArrow: <PrevBtn />,
+
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto md:pt-8">
       <Title>Kampanyalar</Title>
-      <Slider className="-mx-2" {...settings}>
+      <Slider className="md:-mx-2" {...settings}>
         {banners.length &&
           banners.map((banner, index) => (
             <div key={banner.id}>
-              <picture className="block px-2">
-                <img src={banner.image} className="rounded-lg" />
+              <picture className="block md:px-2">
+                <img src={banner.image} className="md:rounded-lg" />
               </picture>
             </div>
           ))}
